@@ -1,0 +1,100 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CV Info Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+  <link href="{% static "pdf/form.css" %}" rel="stylesheet">
+  <style>
+   
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+
+      <div class="form-card">
+        <h3 class="text-center text-primary mb-4">CV Information Form</h3>
+
+        <form method="POST">
+          {% csrf_token %}
+
+          <div class="mb-3">
+            <label class="form-label" >Full Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Phone Number</label>
+            <input type="text" class="form-control" name="phone" placeholder="Enter your phone number">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" required>About You</label>
+            <textarea class="form-control" name="summary" rows="3" placeholder="Write a short summary about yourself"></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Your Degree(s)</label>
+            <input type="text" class="form-control" name="degree" placeholder="e.g. BSc in Computer Science" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">School Name</label>
+            <input type="text" class="form-control" name="school" placeholder="Your high school name">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">University Name</label>
+            <input type="text" class="form-control" name="university" placeholder="Your university name">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Previous Work/Experience</label>
+            <textarea class="form-control" name="previous_work" rows="3" placeholder="Mention your past work or experience"></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Skills</label>
+            <textarea class="form-control" name="skills" rows="3" placeholder="e.g. Python, Django, React..." required></textarea>
+          </div>
+
+          <div class="text-center">
+            
+            <button type="submit" class="btn btn-primary px-5">Submit</button>
+          </div>
+
+        </form>
+     
+  </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center">
+         <div class="col-md-8">
+            <div class="form-card">
+            <div>
+                <h4>What's you want to do here?</h4>
+            <a href="{% url "list" %}" class="btn btn-primary px-5">View all CV</a>
+          
+      
+            {% if user_profile %}
+            <a href="{% url 'resumeview' user_profile.id %}" class="btn btn-primary px-5">Download</a>
+        {% endif %}
+          </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
