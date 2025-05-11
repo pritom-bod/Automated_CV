@@ -25,7 +25,7 @@ def accept(request):
         profile.save()
         return render(request, 'pdf/accept.html', {'user_profile': profile})
     return render(request, 'pdf/accept.html')
-# ✅ HTML view - show on web
+
 def resume_view(request, id):
     profile = get_object_or_404(CvProfile, pk=id)
     return render(request, 'pdf/resume.html', {'user_profile': profile})

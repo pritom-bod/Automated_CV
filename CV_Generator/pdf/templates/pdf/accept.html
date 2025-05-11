@@ -22,7 +22,8 @@
       <div class="form-card">
         <h3 class="text-center text-primary mb-4">CV Information Form</h3>
 
-        <form method="POST">
+        <form method="POST" action="{% url 'accept' %}">
+
           {% csrf_token %}
 
           <div class="mb-3">
@@ -85,11 +86,11 @@
             <div class="form-card">
             <div>
                 <h4>What's you want to do here?</h4>
-            <a href="{% url "list" %}" class="btn btn-primary px-5">View all CV</a>
+            <a href="{% url "list" %}" class="btn btn-primary px-5">All CV List</a>
           
       
             {% if user_profile %}
-            <a href="{% url 'resumeview' user_profile.id %}" class="btn btn-primary px-5">Download</a>
+            <a href="{% url 'resumeview' user_profile.id %}" class="btn btn-primary px-5">View CV</a>
         {% endif %}
           </div>
             </div>

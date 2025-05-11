@@ -27,7 +27,8 @@
       <div class="col-md-8">
         <div class="profile-card d-flex justify-content-between align-items-center">
           <h5 class="mb-0">{{ profile.name }}</h5>
-          <a href="/{{ profile.id }}" class="btn btn-warning btn-sm px-4 py-2 fw-bold">⬇ Download CV</a>
+          <a href="{% url 'resume' profile.id %}" class="btn btn-warning btn-sm px-4 py-2 fw-bold">⬇ Download CV</a>
+
         </div>
       </div>
     </div>

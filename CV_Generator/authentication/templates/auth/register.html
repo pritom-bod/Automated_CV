@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+       
+        <title>Register Form</title>
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {% for fm in form %}
+                {{fm.label_tag}}{{fm}}{{fm.errors | striptags}}<br><br>
+
+            {% endfor %}
+
+            <input type='submit' value='Submit'>
+            <a href='{% url "login" %}'>Log In</a>
+        </form>
+       
+       
+    </body>
+</html>
