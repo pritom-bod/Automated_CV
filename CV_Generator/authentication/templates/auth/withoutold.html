@@ -3,17 +3,18 @@
 <html>
     <head>
        
-        <title>Login Form</title>
+        <title>Change Password without old</title>
         <link rel="stylesheet" href="">
     </head>
     <body>
         <form action="" method="POST">
             {% csrf_token %}
-            {% if form.non_field_errors %}
+             {% if form.non_field_errors %}
             {% for fm in form.non_field_errors %}
                 <p>{{errors}}</p>
             {% endfor %}
             {% endif %}
+
 
             {% for fm in form %}
                 {{fm.label_tag}}{{fm}}{{fm.errors | striptags}}<br><br>

@@ -3,11 +3,13 @@
 <html>
     <head>
        
-        <title>Login Form</title>
+        <title>Change Password with old </title>
         <link rel="stylesheet" href="">
     </head>
     <body>
         <form action="" method="POST">
+
+            {% csrf_token %}
             {% csrf_token %}
             {% if form.non_field_errors %}
             {% for fm in form.non_field_errors %}
@@ -20,8 +22,8 @@
 
             {% endfor %}
 
-            <input type='submit' value='Submit'>
-            <a href="{% url "register" %}">Register</a>
+            <input type='submit' value='Save'>
+            <a href="{% url "logout" %}">Logout</a>
         </form>
        
        

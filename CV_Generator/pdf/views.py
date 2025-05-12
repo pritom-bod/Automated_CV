@@ -54,3 +54,4 @@ def CvList(request):
     return render(request, 'pdf/list.html', {
         'profile':profile,
     })
+
